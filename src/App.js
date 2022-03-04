@@ -1,8 +1,5 @@
+import Main from './components/Main'
 
-
-const App = () => <div>
-
-  a
-</div>
+const App = () => <Main />
 
 export default App;
