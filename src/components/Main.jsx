@@ -8,8 +8,9 @@ const Main = () => {
     return (
         <>
             {/* <Header />
-            <Login /> */}
+             */}
             {/* <Post /> */}
+            <Login />
         </>
     )
 }

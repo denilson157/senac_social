@@ -22,7 +22,6 @@ export const Button = styled.button.attrs({ type: "submit" })`
     padding: 6px
 `
 
-
 export const Coluna = styled.div` 
     display: flex;
     flex-direction: column
