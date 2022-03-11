@@ -1,4 +1,5 @@
-import { useState } from 'react'
+import { useState, useReducer, useEffect } from 'react'
+import { Redirect } from 'react-router-dom'
 import {
     Container,
     Input,
@@ -6,6 +7,7 @@ import {
     Form,
     Fields
 } from "./Components"
+import { reduce } from './Dispatch'
 
 const initialValuesForm = {
     Login: '',
@@ -15,6 +17,14 @@ const initialValuesForm = {
 const Login = () => {
 
     const [form, setForm] = useState(initialValuesForm)
+    const [redirect, setRedirect] = useState(false)
+
+    const [usuario, dispatch] = useReducer(reduce, initialValuesForm);
+
+    useEffect(() => {
+        console.log(usuario)
+    }, [usuario])
+
 
     const setFormValues = (newValue, valueTipo) => {
         setForm(
@@ -25,9 +35,24 @@ const Login = () => {
 
     }
 
+    const logar = () => {
+        setRedirect(true)
+        dispatch(
+            {
+                type: "AlterarLoginUsuario",
+                payload: form.Login,
+
+            }
+        )
+    }
+
+    if (redirect)
+        return <Redirect to="/home" />
+
     return (
         <Container>
             <Form>
+
                 <Fields>
                     <Input
                         value={form.Login}
@@ -43,11 +68,20 @@ const Login = () => {
                     />
                 </Fields>
 
-                <Button>
+
+
+                <Button type="button" onClick={logar}>
                     Logar
                 </Button>
+
+                {
+                    usuario && usuario.Login &&
+                    <p>
+                        Seja bem-vindo {usuario.Login}
+                    </p>
+                }
             </Form>
-        </Container>
+        </Container >
     )
 }
 

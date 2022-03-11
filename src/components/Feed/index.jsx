@@ -1,25 +1,37 @@
+import { useState } from 'react'
 import {
     Container,
     TextArea,
     Botao,
     Form,
-    Fields
+    Fields,
+    InputFile
 } from './Components'
 
-const Post = () => {
+const Feed = () => {
+
+    const [posts, setPost] = useState([])
+
+    const adicionarPost = () => {
+        
+    }
+
     return (
         <Container>
+
             <Form>
                 <Fields>
                     <TextArea />
+
+                    <InputFile />
                 </Fields>
-                
+
                 <Botao>
                     Publicar
                 </Botao>
             </Form>
-        </Container >
+        </Container>
     )
 }
 
-export default Post
+export default Feed

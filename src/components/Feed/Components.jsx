@@ -6,8 +6,11 @@ export const Container = styled.div`
 `
 
 export const TextArea = styled.textarea.attrs(() => ({
-    placeholder: "Digite o novo post"
-}))`;
+    placeholder: "Digite o novo post",
+    rows: 5,
+    cols: 65
+}))`
+    margin-bottom: 10px
 `
 
 export const Botao = styled.button.attrs(() => ({
@@ -22,4 +25,9 @@ export const Fields = styled.div`
 export const Form = styled.form`
     display: flex;
     flex-direction: column;
+`
+export const InputFile = styled.input.attrs(() => ({
+    type: 'file'
+}))`
+    margin-bottom: 10px
 `

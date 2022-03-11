@@ -1,16 +1,14 @@
 import {
     Header,
-    Login,
-    Post
+    Feed
 } from './index'
 
 const Main = () => {
     return (
         <>
-            {/* <Header />
-             */}
-            {/* <Post /> */}
-            <Login />
+            <Header />
+
+            <Feed />
         </>
     )
 }
