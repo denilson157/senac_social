@@ -21,18 +21,12 @@ const Login = () => {
 
     const [usuario, dispatch] = useReducer(reduce, initialValuesForm);
 
-    useEffect(() => {
-        console.log(usuario)
-    }, [usuario])
-
-
     const setFormValues = (newValue, valueTipo) => {
         setForm(
             {
                 ...form,
                 [valueTipo]: newValue
             })
-
     }
 
     const logar = () => {
@@ -81,7 +75,7 @@ const Login = () => {
                     </p>
                 }
             </Form>
-        </Container >
+        </Container>
     )
 }
 

@@ -1,10 +1,10 @@
-
+import { Container } from './Components'
 
 const Header = () => {
     return (
-        <div>
+        <Container>
             Header
-        </div>
+        </Container>
     )
 }
 export default Header 
