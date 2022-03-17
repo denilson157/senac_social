@@ -2,7 +2,9 @@ export const reducer = (state, action) => {
 
     switch (action.type) {
         case FeedActions.CriarPost:
-            return { ...state, Posts: [...state.payload, ...state.Posts] }
+            const newPost = action.payload.post
+            
+            return { ...state, posts: [newPost, ...state.posts] };
         default:
             return state;
 

@@ -1,12 +1,15 @@
-import { useReducer, createContext } from 'react'
+import { useReducer, useState, createContext } from 'react'
 import { reducer } from '../reducer/feed'
-import { routes } from '../Rotas';
-import { Login } from './index'
+import { Routes } from '../Rotas';
+
+import { Feed } from '../components'
 
 export const PostContext = createContext();
+export const UserContext = createContext();
 
 const Main = () => {
     const [state, dispacth] = useReducer(reducer, { Posts: [] })
+    const [username, setUsername] = useState("Denílson")
 
     const Content = (props) => {
         return (
@@ -19,11 +22,14 @@ const Main = () => {
 
 
     return (
-        <PostContext.Provider value={dispacth}>
-            <Content>
-                <Login />
-            </Content>
-        </PostContext.Provider>
+        <>
+
+            <UserContext.Provider value={username}>
+                <PostContext.Provider value={dispacth}>
+                    <Feed posts={state.Posts} />
+                </PostContext.Provider>
+            </UserContext.Provider>
+        </>
     )
 }
 
