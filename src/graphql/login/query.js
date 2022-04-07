@@ -4,7 +4,7 @@ export const GET_LOGIN = gql`
 query getLogin($username:String!) {
     user(where: {username: {_eq: $username}}) {
       id
-      nome
+      name
       password
       username
     }

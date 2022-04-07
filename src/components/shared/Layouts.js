@@ -9,7 +9,7 @@ export default function Layout({children, title}){
             <header>
                 <Navbar />
             </header>
-            <main className='text-center' style={{'marginTop':'90px'}}>
+            <main className='text-center  mx-0' style={{'marginTop':'90px'}}>
                 {children}
             </main>
         </>)

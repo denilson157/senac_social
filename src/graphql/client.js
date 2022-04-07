@@ -1,8 +1,8 @@
 import { ApolloClient, InMemoryCache } from '@apollo/client'
 
 const client = new ApolloClient({
-    uri: 'https://magnetic-bunny-23.hasura.app/v1/graphql',
-    headers : { 'x-hasura-admin-secret' : 'jY9G7LI4j6YE37D9yWwMErnG8D9m7N69WIuXuE5zsJp6cJUKwq6Kqe25O0qtNu77'},
+    uri: 'https://promoted-hawk-47.hasura.app/v1/graphql',
+    headers: { 'x-hasura-admin-secret': '0jp1wFdiMXoNuRozBN8FnQnODKWnwkIOIJmYYLQv884KrZZqFuq9IjL7l1vmBEKx' },
     cache: new InMemoryCache()
 });
 
