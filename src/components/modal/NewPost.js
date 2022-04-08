@@ -1,7 +1,13 @@
-import React, { useState, useRef } from 'react'
+import React, { useState, useRef, useContext } from 'react'
+import { UserContext } from '../../auth';
+import { useMutation } from '@apollo/client';
+import { INSERT_POST } from '../../graphql/post/mutation';
 
 
 const NewPost = ({ isNewPost }) => {
+
+    const { currentUser } = useContext(UserContext);
+    const [setPost] = useMutation(INSERT_POST);
 
     if (isNewPost) {
         const element = document.getElementById('newPost')
@@ -36,10 +42,17 @@ const NewPost = ({ isNewPost }) => {
 
         const objetoPost = {
             text: texto,
-            image_id: imageURl
+            image_id: imageURl,
+            user_id: currentUser.id
         }
 
-        console.log(objetoPost)
+        setPost({
+            variables: {
+                image_id: objetoPost.image_id,
+                text: objetoPost.text,
+                user_id: objetoPost.user_id
+            }
+        })
 
     }
 
