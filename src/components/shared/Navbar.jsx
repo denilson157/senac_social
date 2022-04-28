@@ -1,12 +1,14 @@
 import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { UserContext } from '../../auth';
+import EditUser from '../modal/EditUser';
 import NewPost from '../modal/NewPost';
 
 const Navbar = () => {
 
     const { currentUser } = useContext(UserContext);
     const [isNewPost, setIsNewPost] = useState(false)
+    const [editUser, setEditUser] = useState(false)
 
     return (
         <nav className='navbar fixed-top navbar-light bg-light'>
@@ -34,8 +36,9 @@ const Navbar = () => {
                             </div>
                         </li>
                     }
-                    <li className='nav-item'>
+                    <li className='nav-item' style={{ cursor: 'pointer' }} onClick={() => setEditUser(old => !old)}>
                         {currentUser.name}
+                        <EditUser isEditUser={editUser} />
                     </li>
                 </ul>
 
