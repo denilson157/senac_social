@@ -39,7 +39,7 @@ export default function Post({ post, refetch }) {
                 .finally(() => setLoading(false))
         }
     }
-    
+
     return (
         <article style={{ "maxWidth": '700px' }} className='mx-auto my-3 border rounded-1'>
             <div className='text-start m-3'>
@@ -47,7 +47,7 @@ export default function Post({ post, refetch }) {
                 <span className='mx-2 fw-bold'>{post.post_user?.name}</span>
             </div>
             <div>
-                <img alt="img" src={post.image_id} className="img-fluid" />
+                <img onDoubleClick={handleLikes} style={{ "cursor": 'pointer' }} alt="img" src={post.image_id} className="img-fluid" />
             </div>
             <div className='text-start m-3'>
                 <div>
