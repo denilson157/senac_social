@@ -8,6 +8,10 @@ query Posts {
       image_id
       text
       likes
+      likesByPostId {
+        post_id
+        user_id
+      }
       post_user {
         id
         image

@@ -6,14 +6,11 @@ import { useState } from 'react';
 import { useQuery } from '@apollo/client';
 
 import { GET_POSTS } from '../graphql/post/query';
+import { useEffect } from 'react';
 
-export default function FeedPage() {
+const FeedPage = () => {
 
-    const { loading, error, data } = useQuery(GET_POSTS);
-
-    console.log(data)
-
-    const [posts, setPosts] = useState([]);
+    const { loading, error, data, refetch } = useQuery(GET_POSTS);
 
     return (
         <Layout>
@@ -21,7 +18,7 @@ export default function FeedPage() {
                 !loading &&
                 <div className="row">
                     <div className="col-10 mx-auto">
-                        {data.post?.map((post) => <Post key={post.id} post={post} />)}
+                        {data.post?.map((post) => <Post key={post.id} post={post} refetch={refetch} />)}
                     </div>
                 </div>
             }
@@ -35,3 +32,5 @@ export default function FeedPage() {
 
 
 }
+
+export default FeedPage
